@@ -14,9 +14,6 @@ RUN /opt/keycloak/bin/kc.sh build
 
 FROM quay.io/keycloak/keycloak:26.0.4
 
-# Adjusting Java crypto policy if needed
-COPY java.config /etc/crypto-policies/back-ends/java.config
-
 # Copying built files from the builder stage
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
