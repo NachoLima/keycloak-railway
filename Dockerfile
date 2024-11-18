@@ -21,4 +21,4 @@ COPY --from=builder /opt/keycloak/ /opt/keycloak/
 EXPOSE 8080
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
-CMD ["start", "--optimized", "--http-enabled=true", "--http-port=8080", "--import-realm", "--proxy=edge", "--spi-admin-console-username=admin", "--spi-admin-console-password=admin"]
+CMD ["start", "--optimized", "--http-enabled=true", "--http-port=8080", "--import-realm", "--proxy=edge"]
