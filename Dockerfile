@@ -4,7 +4,7 @@ ARG KC_HEALTH_ENABLED KC_METRICS_ENABLED KC_FEATURES KC_DB KC_HTTP_ENABLED PROXY
 
 ADD --chown=keycloak:keycloak https://github.com/klausbetz/apple-identity-provider-keycloak/releases/download/1.7.1/apple-identity-provider-1.7.1.jar /opt/keycloak/providers/apple-identity-provider-1.7.1.jar
 ADD --chown=keycloak:keycloak https://github.com/wadahiro/keycloak-discord/releases/download/v0.5.0/keycloak-discord-0.5.0.jar /opt/keycloak/providers/keycloak-discord-0.5.0.jar
-COPY /theme/keywind /opt/keycloak/themes/keywind
+COPY /theme/ibd /opt/keycloak/themes/keywind
 
 RUN /opt/keycloak/bin/kc.sh build
 
@@ -16,4 +16,4 @@ COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
 
-CMD ["start", "--optimized", "--import-realm"]
+CMD ["start", "--optimized"]
