@@ -11,6 +11,8 @@ COPY /themes/. /opt/keycloak/themes
 
 # Build Keycloak
 RUN /opt/keycloak/bin/kc.sh build
+RUN /opt/keycloak/bin/kc.[sh|bat] bootstrap-admin user --username admin --password admin
+
 
 FROM quay.io/keycloak/keycloak:26.0.4
 
