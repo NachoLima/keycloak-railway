@@ -17,6 +17,8 @@ FROM quay.io/keycloak/keycloak:26.0.4
 # Copying built files from the builder stage
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
+EXPOSE 8080
+
 # Entrypoint and command
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
 CMD ["start", "--optimized", "--import-realm"]
