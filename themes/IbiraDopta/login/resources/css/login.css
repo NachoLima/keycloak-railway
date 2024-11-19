@@ -1,0 +1,62 @@
+/* Patternfly CSS places a "bg-login.jpg" as the background on this ".login-pf" class.
+   This clashes with the "keycloak-bg.png' background defined on the body below.
+   Therefore the Patternfly background must be set to none. */
+.login-pf {
+    background: none;
+}
+
+.login-pf body {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/keycloak-bg.png") no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+}
+
+
+.card-pf {
+    background-color: rgba(0, 0, 0, 0.807); /* Color de fondo negro */
+    color: white; /* Cambia el color del texto a blanco para asegurar la legibilidad */
+    width: 500px;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 20px;}
+
+.card-pf h1, 
+.card-pf h2, 
+.card-pf h3, 
+.card-pf p {
+    color: white; /* Cambia el color del texto dentro de la tarjeta a blanco */
+}
+
+.pf-c-form-control {
+    background-color: rgba(0, 0, 0, 0); ; /* Cambia este color al que desees */
+    border-color: #ccc; /* Opcional: Cambia el color del borde si lo deseas */
+    color: #ccc;
+    border-radius: 0px;
+}
+
+.pf-c-input-group {
+    background-color: rgba(0, 0, 0, 0); /* Cambia el fondo a negro */
+}
+
+.pf-c-button.pf-m-control {
+    background-color: rgba(0, 0, 0, 0); /* Cambia el fondo a negro */
+    color: white; /* Cambia el color del texto a blanco */
+    border: none; /* Elimina el borde, si lo deseas */
+}
+
+.pf-c-button.pf-m-primary.pf-m-block.btn-lg {
+    background-color: green; /* Cambia el fondo a verde */
+    color: white; /* Cambia el color del texto a blanco */
+    border: none; /* Elimina el borde, si lo deseas */
+}
+
+/* Estilo opcional para el efecto hover */
+.pf-c-button.pf-m-primary.pf-m-block.btn-lg:hover {
+    background-color: darkgreen; /* Cambia el fondo al pasar el mouse */
+    border-radius: 10px;
+    color: white; /* Asegúrate de que el color del texto siga siendo blanco */
+}
+
+.login-pf-page-header{
+    color: #ffffff00;
+}
