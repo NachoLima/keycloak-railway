@@ -10,9 +10,6 @@ COPY themes /opt/keycloak/themes
 # Copy your custom providers (extensions) to the Keycloak providers directory
 COPY providers /opt/keycloak/providers
 
-# Copy your realm file for importing during build
-COPY realms /opt/keycloak/data/import
-
 # Build Keycloak with your customizations
 RUN /opt/keycloak/bin/kc.sh build
 
