@@ -27,4 +27,4 @@ USER 1000
 
 # Set entrypoint and default command for Keycloak
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
-CMD ["start", "--optimized", "--import-realm"]
+CMD ["start-dev", "--optimized"]
