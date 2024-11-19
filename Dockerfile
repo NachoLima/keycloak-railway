@@ -8,7 +8,7 @@ USER root
 COPY themes /opt/keycloak/themes
 
 # Copy your custom providers (extensions) to the Keycloak providers directory
-COPY providers /opt/keycloak/providers
+#COPY providers /opt/keycloak/providers
 
 # Build Keycloak with your customizations
 RUN /opt/keycloak/bin/kc.sh build
@@ -27,4 +27,4 @@ USER 1000
 
 # Set entrypoint and default command for Keycloak
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
-CMD ["start", "--optimized", "--proxy=edge"]
+CMD ["start", "--optimized"]
