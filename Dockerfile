@@ -22,9 +22,6 @@ USER root
 # Copy the built Keycloak files from the builder stage
 COPY --from=builder /opt/keycloak /opt/keycloak
 
-# Revert to non-root user for security
-USER 1000
-
 # Set entrypoint and default command for Keycloak
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
 CMD ["start", "--optimized"]
