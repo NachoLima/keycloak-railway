@@ -1,27 +1,16 @@
-# Base image for Keycloak
-FROM quay.io/keycloak/keycloak:26.0.4 AS builder
+FROM quay.io/keycloak/keycloak:25.0.6 AS builder
 
-# Switch to root user for copying files and running build commands
-USER root
+ARG KC_HEALTH_ENABLED KC_METRICS_ENABLED KC_FEATURES KC_DB KC_HTTP_ENABLED PROXY_ADDRESS_FORWARDING QUARKUS_TRANSACTION_MANAGER_ENABLE_RECOVERY KC_HOSTNAME KC_LOG_LEVEL KC_DB_POOL_MIN_SIZE
 
-# Copy your custom themes to the Keycloak themes directory
-COPY themes /opt/keycloak/themes
+COPY /providers/. /opt/keycloak/providers
+COPY /themes/. /opt/keycloak/themes
 
-# Copy your custom providers (extensions) to the Keycloak providers directory
-#COPY providers /opt/keycloak/providers
-
-# Build Keycloak with your customizations
 RUN /opt/keycloak/bin/kc.sh build
 
-# Use a fresh Keycloak runtime image
-FROM quay.io/keycloak/keycloak:26.0.4
+FROM quay.io/keycloak/keycloak:latest
 
-# Switch to root user for setup
-USER root
+COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
-# Copy the built Keycloak files from the builder stage
-COPY --from=builder /opt/keycloak /opt/keycloak
-
-# Set entrypoint and default command for Keycloak
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
-CMD ["start", "--optimized"]
+
+CMD ["start", "--optimized", "--import-realm"]
